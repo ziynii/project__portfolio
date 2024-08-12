@@ -1,0 +1,23 @@
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $grey700;
+  opacity: 50%;
+  z-index: $overlay-level;
+
+  &.active {
+    animation: showOverlay 0.3s linear;
+  }
+}
+
+@keyframes showOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 50%;
+  }
+}
