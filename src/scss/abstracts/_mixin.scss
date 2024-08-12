@@ -1,0 +1,67 @@
+// 스크린 사이즈
+@mixin responsive($screen) {
+  @if ($screen == 'T') {
+    @media screen and (min-width: $md-breakpoint) {
+      @content;
+    }
+  }
+  @if ($screen == 'D') {
+    @media screen and (min-width: $lg-breakpoint) {
+      @content;
+    }
+  }
+}
+
+// 포지션
+@mixin position($x, $xvalue, $y, $yvalue) {
+  position: absolute;
+  #{$x}: $xvalue;
+  #{$y}: $yvalue;
+
+  @if $xvalue == 50% and $yvalue == 50% {
+    transform: translate(-50%, -50%);
+  } @else if $xvalue == 50% {
+    transform: translateX(-50%);
+  } @else if $yvalue == 50% {
+    transform: translateY(-50%);
+  }
+}
+
+// 배경 이미지
+@mixin bg(
+  $imgfile,
+  $x: null,
+  $y: null,
+  $bgcolor: null,
+  $width: null,
+  $height: null
+) {
+  background: url(#{$imgurl}#{$imgfile}) no-repeat $x $y $bgcolor;
+  background-size: $width $height;
+}
+
+// IR
+@mixin hide {
+  overflow: hidden;
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+// 말줄임표-한줄
+@mixin ellipsis {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 말줄임표-두줄이상
+@mixin ellipsis-line($lines: 1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+}
