@@ -1,0 +1,22 @@
+.project {
+  &__type {
+    display: flex;
+    justify-content: center;
+    gap: rem(16);
+    padding: 0 0 rem(32) 0;
+
+    @include responsive(T) {
+      padding: 0 0 rem(64) 0;
+    }
+
+    &__item {
+      background-color: transparent;
+      color: $grey500;
+
+      &.active {
+        font-weight: 700;
+        color: $blue-accent;
+      }
+    }
+  }
+}
