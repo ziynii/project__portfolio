@@ -1,0 +1,61 @@
+.profile {
+  &__content {
+    &__image-section {
+      padding: rem(32);
+      width: rem(260);
+      position: sticky;
+      top: rem(97.97);
+      height: calc(90vh - rem($header-size) - rem(97.97));
+      border-right: rem(1) solid $grey200;
+
+      .image-section {
+        &__img {
+          @include bg('profile-image.png', center, center);
+          background-size: cover;
+          border-radius: 100%;
+          width: rem(184);
+          height: rem(184);
+          background-color: $grey50;
+        }
+
+        &__contact {
+          padding: rem(24) 0;
+          .contact {
+            &__title {
+              font-size: rem(10);
+              font-weight: 500;
+              line-height: rem(12);
+              color: $grey400;
+              text-transform: uppercase;
+              display: flex;
+              align-items: center;
+              gap: rem(8);
+
+              .line {
+                display: inline-block;
+                width: 100%;
+                height: 1px;
+                background-color: $grey200;
+              }
+            }
+
+            &__list {
+              padding: rem(24) 0;
+              display: flex;
+              flex-direction: column;
+              gap: rem(16);
+            }
+
+            &__item {
+              @include b3;
+              color: $grey700;
+              display: flex;
+              gap: rem(8);
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
