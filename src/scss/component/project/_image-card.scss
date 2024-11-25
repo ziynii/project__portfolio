@@ -1,0 +1,103 @@
+.project {
+  &__design {
+    padding: 0 rem(16);
+    margin-top: rem(64);
+
+    &__content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: rem(32);
+
+      @include responsive(T) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include responsive(D) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .card {
+        width: 100%;
+        position: relative;
+        padding-bottom: 100%;
+        border: rem(1) solid $grey50;
+        cursor: pointer;
+
+        .btn--go {
+          @include position(right, rem(16), bottom, rem(16));
+          @include h4;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: rem(40);
+          height: rem(40);
+          background-color: $blue-dark;
+          color: $white;
+          border-radius: 100%;
+          z-index: 2;
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+
+        &:hover {
+          .btn--go {
+            opacity: 1;
+          }
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: $black;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          z-index: 1;
+        }
+
+        &:hover::after {
+          opacity: 0.3;
+        }
+
+        &.card01 {
+          @include bg('design01.jpg', center);
+          background-size: cover;
+        }
+
+        &.card02 {
+          @include bg('design02.jpg', center);
+          background-size: cover;
+        }
+
+        &.card03 {
+          @include bg('design03.jpg', center);
+          background-size: cover;
+        }
+
+        &.card04 {
+          @include bg('design04.jpg', center);
+          background-size: cover;
+        }
+
+        &.card05 {
+          @include bg('design05.jpg', center);
+          background-size: cover;
+        }
+
+        &.card06 {
+          @include bg('design06.jpg', center);
+          background-size: cover;
+        }
+
+        &.card07 {
+          @include bg('design07.jpg', left);
+          background-size: cover;
+        }
+      }
+    }
+  }
+}
