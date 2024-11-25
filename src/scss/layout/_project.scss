@@ -1,0 +1,15 @@
+.project {
+  padding: rem(16) 0;
+
+  &__title {
+    padding: rem(32) 0 rem(16) 0;
+    font-size: rem(32);
+    font-weight: 900;
+    text-align: center;
+
+    @include responsive(T) {
+      padding: rem(64) 0 rem(32) 0;
+      font-size: rem(48);
+    }
+  }
+}
