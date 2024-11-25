@@ -25,10 +25,6 @@ export default function Header() {
       icon: '📁',
       text: 'project',
     },
-    {
-      icon: '📨',
-      text: 'contact',
-    },
   ];
   const location = useLocation();
   const currentPath = location.pathname.substring(1);
