@@ -1,0 +1,85 @@
+.profile {
+  &__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: rem(32);
+    padding: rem(24) rem(32);
+    position: sticky;
+    top: 0;
+    background-color: $white;
+    z-index: $header-level;
+    border-bottom: rem(1) solid $grey50;
+
+    @include responsive(T) {
+      flex-direction: row;
+      border: none;
+    }
+
+    .logo {
+      width: rem(112);
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .search {
+      width: 90%;
+      max-width: rem(320);
+      border: rem(1) solid $blue-accent;
+      border-radius: rem(8);
+      padding: rem(8) rem(16);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+
+      .btns {
+        display: flex;
+        gap: rem(12);
+        align-items: center;
+
+        .line {
+          font-size: rem(18);
+          color: $blue-accent;
+          transform: rotate(90deg);
+        }
+
+        svg {
+          font-size: rem(18);
+          color: $blue-dark;
+        }
+      }
+
+      .typing-container {
+        font-size: rem(16);
+        font-weight: 700;
+        word-break: keep-all;
+        display: flex;
+      }
+
+      .cursor {
+        border-left: rem(2) solid $black;
+        animation: blink 0.7s infinite;
+        display: inline-block;
+        margin-left: rem(2);
+        height: rem(18);
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
