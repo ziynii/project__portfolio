@@ -1,9 +1,12 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from 'react-router-dom';
 import './scss/style.scss';
 import HomeOutlet from './pages/HomeOutlet';
 import Project from './pages/Project';
 import Profile from './pages/Profile';
-import Contact from './pages/Contact';
 
 function App() {
   const router = createBrowserRouter([
@@ -14,7 +17,7 @@ function App() {
       children: [
         {
           path: '',
-          element: <Profile />,
+          element: <Navigate to="/profile" replace />,
         },
         {
           path: '/profile',
@@ -23,10 +26,6 @@ function App() {
         {
           path: '/project',
           element: <Project />,
-        },
-        {
-          path: '/contact',
-          element: <Contact />,
         },
       ],
     },
