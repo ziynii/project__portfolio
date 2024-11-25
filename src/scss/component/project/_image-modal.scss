@@ -1,0 +1,12 @@
+.design__modal {
+  @include position(left, 50%, top, 50%);
+  background-color: lightblue;
+  z-index: $modal-level;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .image {
+    max-width: 150%;
+  }
+}
