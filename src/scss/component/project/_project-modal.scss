@@ -1,0 +1,484 @@
+.modal {
+  @include position(left, 50%, top, 55%);
+  width: 80%;
+  max-height: 80vh;
+  background-color: white;
+  border-radius: rem(8);
+  transform: translate(-50%, -50%);
+  z-index: $modal-level;
+  overflow: hidden;
+
+  &__wrapper {
+    position: relative;
+    overflow-y: auto;
+    max-height: calc(80vh - rem(64) - rem(16));
+
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $blue-light;
+      border-radius: 10px;
+      border: 3px solid $white;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $white;
+    }
+  }
+
+  &__main {
+    padding: rem(64) rem(32) rem(16) rem(32);
+
+    @include responsive(T) {
+      padding: rem(80) rem(48) rem(16) rem(48);
+    }
+
+    .top-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: rem(32);
+
+      @include responsive(D) {
+        flex-direction: row;
+      }
+
+      .thumb {
+        width: vw(144);
+        height: vw(144);
+        flex-shrink: 0;
+        border-radius: rem(4);
+        animation: fadeIn 5s forwards;
+
+        &.project01 {
+          background-color: #5c7b89;
+
+          .thumbnail {
+            @include bg('01_thumb.svg');
+            background-size: 80% 80%;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        &.project02 {
+          background-color: #adadad;
+
+          .thumbnail {
+            @include bg('02_thumb.svg');
+            background-size: 80% 80%;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &.project03 {
+          background-color: #c6ad96;
+
+          .thumbnail {
+            @include bg('03_thumb.svg');
+            background-size: 80% 80%;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &.project04 {
+          background-color: #91acb7;
+
+          .thumbnail {
+            @include bg('04_thumb.svg');
+            background-size: 80% 80%;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &.project05 {
+          background-color: #bc8f76;
+
+          .thumbnail {
+            @include bg('05_thumb.svg');
+            background-size: 80% 80%;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &.project06 {
+          background-color: #b78686;
+          .thumbnail {
+            @include bg('06_thumb.svg');
+            background-size: 100%;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &.project07 {
+          background-color: #88879a;
+          .thumbnail {
+            @include bg('07_thumb.svg');
+            background-size: 100%;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &.project08 {
+          background-color: #84a690;
+
+          .thumbnail {
+            @include bg('08_thumb.svg');
+            background-size: 100%;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        @include responsive(T) {
+          width: vw(218, 768);
+          height: vw(218, 768);
+        }
+
+        @include responsive(D) {
+          width: vw(226, 1140);
+          height: vw(226, 1140);
+        }
+      }
+
+      .info {
+        width: 100%;
+
+        .title {
+          @include h4;
+
+          @include responsive(T) {
+            @include h2;
+          }
+        }
+
+        .description {
+          @include b3;
+          margin-top: rem(24);
+
+          @include responsive(T) {
+            @include b2;
+          }
+        }
+
+        .links {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: rem(16);
+          margin-top: rem(24);
+
+          @include responsive(T) {
+            flex-direction: row;
+          }
+
+          &-right {
+            display: flex;
+            gap: rem(16);
+          }
+
+          .link {
+            &-web {
+              @include b3;
+              display: inline-block;
+              width: 144px;
+              height: 48px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: rem(1) solid $blue-dark;
+              color: $black;
+              border-radius: rem(24);
+              box-shadow: $blue-dark 3px 3px 0px 1px;
+            }
+
+            &-figma,
+            &-git {
+              width: rem(48);
+              height: rem(48);
+              border-radius: rem(24);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: rem(1) solid $red;
+              border-radius: rem(24);
+              box-shadow: $red 3px 3px 0px 1px;
+              position: relative;
+
+              &:hover {
+                .popup {
+                  opacity: 1;
+                }
+              }
+
+              .popup {
+                @include b3;
+                position: absolute;
+                bottom: rem(-60);
+                left: 0;
+                white-space: nowrap;
+                padding: rem(8) rem(12);
+                background: $red;
+                border-radius: rem(24);
+                color: $white;
+                transition: 0.1s;
+                opacity: 0;
+
+                &::after {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 50%;
+                  width: 0;
+                  height: 0;
+                  border: 12px solid transparent;
+                  border-bottom-color: $red;
+                  border-top: 0;
+                  border-left: 0;
+                  margin-left: -66px;
+                  margin-top: -12px;
+                }
+              }
+
+              svg {
+                color: $red;
+                @include h4;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .stack {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: rem(16);
+      margin-top: rem(48);
+
+      @include responsive(T) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &__card {
+        border: rem(1) solid $blue-dark;
+        padding: rem(12);
+        border-radius: rem(12);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        &__info {
+          display: flex;
+          align-items: center;
+          gap: rem(16);
+
+          .name {
+            @include b4;
+            font-weight: 700;
+            text-transform: uppercase;
+          }
+
+          .icon__stack {
+            &--scss {
+              @include bg('icon_scss.svg');
+              background-size: cover;
+              width: rem(36);
+              height: rem(36);
+            }
+
+            &--firebase {
+              @include bg('icon_firebase.svg');
+              background-size: cover;
+              width: rem(36);
+              height: rem(36);
+            }
+
+            &--jquery {
+              @include bg('icon_jquery.svg');
+              background-size: cover;
+              width: rem(36);
+              height: rem(36);
+            }
+
+            &--typescript {
+              @include bg('icon_typescript.svg');
+              background-size: cover;
+              width: rem(36);
+              height: rem(36);
+            }
+
+            &--tailwindCSS {
+              @include bg('icon_tailwindCSS.svg');
+              background-size: contain;
+              width: rem(36);
+              height: rem(36);
+            }
+
+            &--styledComponents {
+              @include bg('icon_styledComponents.svg');
+              background-size: cover;
+              width: rem(36);
+              height: rem(36);
+            }
+
+            &--contentful {
+              @include bg('icon_contentful.svg');
+              background-size: contain;
+              width: rem(36);
+              height: rem(36);
+            }
+          }
+        }
+
+        &__description {
+          @include b4;
+          margin-top: rem(16);
+          line-height: rem(18);
+        }
+      }
+    }
+
+    &__preview {
+      display: flex;
+      flex-direction: column;
+      margin-top: rem(72);
+      gap: rem(4);
+      @include responsive(T) {
+        flex-direction: row;
+      }
+
+      .preview {
+        width: 100%;
+        padding-bottom: 56.25%;
+        border-radius: rem(8);
+        overflow: hidden;
+        border: rem(1) solid $red;
+
+        &.preview01 {
+          @include bg('01_preview.gif');
+          background-size: cover;
+          background-position: center center;
+        }
+        &.preview02 {
+          @include bg('02_preview.gif');
+          background-size: cover;
+          background-position: center center;
+        }
+        &.preview03 {
+          @include bg('03_preview.gif');
+          background-size: cover;
+          background-position: center center;
+        }
+        &.preview04 {
+          @include bg('04_preview.gif');
+          background-size: cover;
+          background-position: center center;
+        }
+        &.preview05 {
+          @include bg('05_preview.gif');
+          padding-bottom: 150%;
+          background-size: cover;
+          background-position: center center;
+
+          @include responsive(T) {
+            padding-bottom: 75%;
+          }
+        }
+        &.preview05-second {
+          @include bg('05-1_preview.gif');
+          padding-bottom: 150%;
+          background-size: cover;
+          background-position: center center;
+
+          @include responsive(T) {
+            padding-bottom: 75%;
+          }
+        }
+        &.preview06 {
+          @include bg('06_preview.gif');
+          background-size: cover;
+          background-position: center center;
+        }
+        &.preview07 {
+          @include bg('07_preview.gif');
+          background-size: cover;
+          background-position: center center;
+        }
+        &.preview08 {
+          @include bg('08_preview.gif');
+          background-size: cover;
+          background-position: center center;
+        }
+      }
+    }
+  }
+
+  .btn--close {
+    background-color: transparent;
+    position: fixed;
+    right: rem(16);
+    top: rem(16);
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: rem(72);
+
+    .btn {
+      &--prev,
+      &--next {
+        @include h4;
+        font-family: 'GmarketSansMedium';
+        display: flex;
+        flex-basis: 50%;
+        align-items: center;
+        font-weight: 500;
+        gap: rem(8);
+        padding: rem(32) rem(48);
+        transition: 0.3s;
+
+        .highlight {
+          position: relative;
+          display: inline-block;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 0.3em;
+            background-color: $blue-main;
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+          }
+        }
+
+        &:hover {
+          .highlight::before {
+            transform: scaleX(1);
+          }
+        }
+      }
+
+      &--next {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}
