@@ -58,7 +58,7 @@ export default function AboutContent({ selectedTab, isTransitioning }) {
 
       <dl className="info">
         <div className="info__item">
-          <dt className="info__term">2021.09 - 2022.04 </dt>
+          <dt className="info__term">2020.09 - 2021.04 </dt>
           <dd className="info__description">굿잡아카데미 웹과정 수료</dd>
         </div>
         <div className="info__item">
