@@ -1,0 +1,30 @@
+@import 'constants/box-shadows';
+@import 'constants/breakpoint';
+@import 'constants/color';
+@import 'constants/z-index';
+@import 'constants/dimensions';
+
+@import 'abstracts/variables'; // 변수
+@import 'abstracts/function'; // 함수
+@import 'abstracts/mixin'; // 믹스인
+@import 'abstracts/typography'; // 폰트 믹스인
+
+@import 'base/reset'; // 리셋
+@import 'base/globals'; // 글로벌
+@import 'base/typography'; // 타이포
+
+@import 'component/button.scss';
+@import 'component/header';
+@import 'component/overlay';
+@import 'component/profile/profile-header';
+@import 'component/profile/image-section';
+@import 'component/profile/info-section';
+@import 'component/project/project-modal';
+@import 'component/project/image-modal';
+@import 'component/project/project-item';
+@import 'component/project/project-type-filter';
+@import 'component/project/image-card';
+
+@import './layout/homeOutlet';
+@import './layout/project';
+@import './layout/profile';
