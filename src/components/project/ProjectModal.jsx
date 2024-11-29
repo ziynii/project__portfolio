@@ -30,7 +30,6 @@ export default function ProjectModal({
     setProjectId(prev => prev + 1);
   };
 
-  // 선택한 프로젝트 가져오기
   useEffect(() => {
     let filteredCurrentProject = projectList.filter(
       item => item.id === projectId,
@@ -52,7 +51,6 @@ export default function ProjectModal({
     }
   }, [projectId]);
 
-  // 프로젝트 바뀔 때 스크롤 초기화
   useEffect(() => {
     if (modalRef.current) {
       modalRef.current.scrollTop = 0;
@@ -90,6 +88,19 @@ export default function ProjectModal({
                   {currentProject && currentProject.description}
                 </p>
               </AnimatedComponent>
+
+              <AnimatedComponent>
+                <div className="pages">
+                  {' '}
+                  {currentProject &&
+                    currentProject.pages.map((page, index) => (
+                      <p className="page" key={index}>
+                        # {page}
+                      </p>
+                    ))}
+                </div>
+              </AnimatedComponent>
+
               <AnimatedComponent>
                 <div className="links">
                   <a
