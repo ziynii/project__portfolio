@@ -1,0 +1,222 @@
+.profile {
+  &__content {
+    &__info-section {
+      padding: rem(32);
+      width: 100%;
+
+      .info-tabs {
+        &__btns {
+          border-bottom: rem(1) solid $grey200;
+        }
+
+        &__btn {
+          @include b3;
+          padding: rem(16) rem(8);
+          background-color: transparent;
+          position: relative;
+          text-transform: uppercase;
+
+          &.active {
+            font-weight: 700;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -1px;
+              left: 0;
+              width: 100%;
+              height: 2px;
+              background-color: $blue-accent;
+            }
+          }
+        }
+
+        .content__title {
+          font-size: rem(10);
+          color: $grey400;
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+          gap: rem(8);
+          padding-top: rem(32);
+          text-transform: uppercase;
+
+          .line {
+            display: inline-block;
+            width: 100%;
+            height: 1px;
+            background-color: $grey200;
+          }
+        }
+
+        &__content {
+          opacity: 0;
+          display: none;
+          transition: opacity 0.3s ease;
+
+          &.fade-in {
+            opacity: 1;
+            display: block;
+            animation: fadeIn 0.3s ease forwards;
+          }
+
+          &.fade-out {
+            opacity: 0;
+            animation: fadeOut 0.3s ease forwards;
+          }
+
+          .info {
+            @include b4;
+            color: $grey700;
+            display: flex;
+            flex-direction: column;
+            gap: rem(32);
+            padding: rem(48) 0;
+
+            @include responsive(T) {
+              @include b3;
+            }
+
+            &.skill {
+              .info__description {
+                word-spacing: rem(12);
+              }
+            }
+
+            &__item {
+              display: flex;
+              align-items: center;
+            }
+
+            &__term {
+              width: rem(130);
+              font-weight: 600;
+              flex-shrink: 0;
+
+              @include responsive(T) {
+                width: rem(200);
+              }
+            }
+
+            &__description {
+              a {
+                color: $grey700;
+              }
+            }
+          }
+        }
+      }
+
+      .email {
+        margin: rem(48) 0;
+
+        &-char {
+          @include h3;
+          display: inline-block;
+          transform: translateY(16px);
+          opacity: 0;
+          animation: slideUp 0.3s ease forwards;
+          font-weight: 500;
+        }
+      }
+
+      .btn--send {
+        opacity: 0;
+        margin-top: rem(24);
+        animation: fadeIn 0.3s ease 1s forwards;
+      }
+
+      .phone {
+        margin: rem(48) 0;
+      }
+
+      .intro {
+        &__title {
+          @include h4;
+          white-space: pre-line;
+          height: rem(56);
+
+          .highlight {
+            position: relative;
+            display: inline-block;
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: 0;
+              height: rem(4);
+              background-color: $blue-light;
+              transition: width 0.5s ease-in-out;
+            }
+          }
+
+          .highlight-active::after {
+            width: 100%;
+          }
+        }
+
+        &__description {
+          @include b3;
+          line-height: rem(32);
+          padding: rem(48) 0;
+          opacity: 0;
+          animation: fadeIn 0.7s forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slide {
+  0% {
+    top: 100%;
+    opacity: 0;
+  }
+  10% {
+    top: 0;
+    opacity: 1;
+  }
+  30% {
+    top: 0;
+    opacity: 1;
+  }
+  40% {
+    top: -100%;
+    opacity: 0;
+  }
+  100% {
+    top: -100%;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
