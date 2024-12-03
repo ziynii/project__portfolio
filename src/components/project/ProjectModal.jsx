@@ -91,7 +91,7 @@ export default function ProjectModal({
 
               <AnimatedComponent>
                 <div className="pages">
-                  {' '}
+                  <p className="page red">개인 프로젝트</p>{' '}
                   {currentProject &&
                     currentProject.pages.map((page, index) => (
                       <p className="page" key={index}>
