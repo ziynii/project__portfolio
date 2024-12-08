@@ -455,8 +455,13 @@
 
   &__nav {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin-top: rem(72);
+
+    @include responsive(T) {
+      flex-direction: row;
+    }
 
     .btn {
       &--prev,
