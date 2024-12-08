@@ -5,7 +5,7 @@
       width: rem(260);
       position: sticky;
       top: rem(97.97);
-      height: calc(90vh - rem($header-size) - rem(97.97));
+      height: calc(95vh - rem($header-size) - rem(97.97));
       border-right: rem(1) solid $grey200;
 
       .image-section {
