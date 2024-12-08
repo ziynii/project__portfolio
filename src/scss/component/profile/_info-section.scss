@@ -66,16 +66,12 @@
           }
 
           .info {
-            @include b4;
+            @include b3;
             color: $grey700;
             display: flex;
             flex-direction: column;
             gap: rem(32);
             padding: rem(48) 0;
-
-            @include responsive(T) {
-              @include b3;
-            }
 
             &.skill {
               .info__description {
@@ -85,12 +81,19 @@
 
             &__item {
               display: flex;
-              align-items: center;
+              flex-direction: column;
+              gap: rem(12);
+
+              @include responsive(T) {
+                flex-direction: row;
+                align-items: center;
+                gap: rem(0);
+              }
             }
 
             &__term {
-              width: rem(130);
-              font-weight: 600;
+              width: 100%;
+              font-weight: 700;
               flex-shrink: 0;
 
               @include responsive(T) {
@@ -132,9 +135,16 @@
 
       .intro {
         &__title {
-          @include h4;
+          @include b2;
           white-space: pre-line;
-          height: rem(56);
+          height: rem(92);
+          line-height: rem(30);
+          font-weight: 700;
+
+          @include responsive(T) {
+            @include h4;
+            height: rem(56);
+          }
 
           .highlight {
             position: relative;
